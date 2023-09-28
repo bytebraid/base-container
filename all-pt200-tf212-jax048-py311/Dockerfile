@@ -236,14 +236,13 @@
         boto3==1.24.90 \
         tabulate==0.9.0 \
         future==0.18.2 \
-        gradient==2.0.6 \
         jsonify==0.5 \
         opencv-python==4.6.0.66 \
         sentence-transformers==2.2.2 \
-        wandb==0.13.4 \
-        awscli==1.25.91 \
         jupyterlab-snippets==0.4.1 \
-        tornado==6.1
+        tornado==6.1 && \
+    echo "Cython<3" > cython_constraint.txt && \
+    PIP_CONSTRAINT=cython_constraint.txt $PIP_INSTALL "cython<3.0.0" wheel && PIP_CONSTRAINT=cython_constraint.txt $PIP_INSTALL "gradient==2.0.6" "wandb==0.13.4" "awscli==1.25.91" --no-build-isolation
 # ==================================================================
 # Installing transformers & scikit image (fixed)
 # ------------------------------------------------------------------
